@@ -1,12 +1,123 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🍳 README Chef
 
-Currently, two official plugins are available:
+Whisk up beautiful README.md files in minutes — just add your project ingredients and let the chef cook up your documentation!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What is this?
 
-## Expanding the ESLint configuration
+**README Chef** is a React-based tool that helps you quickly generate professional `README.md` files for your projects. Whether you're cooking up a React app, Node.js backend, or Python tool, this chef's got you covered.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Features
+
+-  Live README preview while you type.
+-  Auto-generates setup instructions based on project type.
+- GitHub clone instructions included.
+-  Author and License sections with dropdown selector.
+- 🌙 Toggle between light and dark mode.
+-  One-click Markdown download.
+
+---
+
+##  Setup & Run
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Skylar-Lorena/readme-chef.git
+cd readme-chef
+2. Install dependencies
+bash
+Copy
+Edit
+npm install
+3. Start the app
+bash
+Copy
+Edit
+npm run dev
+Open http://localhost:5173 to view it in your browser.
+
+Tech Stack
+React (via Vite)
+
+CSS Modules
+
+useState + useEffect
+
+Component-based architecture
+
+Usage
+Fill in your project title, description, and features.
+
+Paste your GitHub clone URL and setup steps.
+
+Choose your project type (React, Node, or Python).
+
+Add author name and license.
+
+Preview the Markdown on the right.
+
+Click Download to get your polished README.md.
+
+🌓 Dark Mode
+Click the 🌙 / ☀️ toggle at the top right to switch between dark and light modes. Your chef supports all kitchen lighting preferences.
+
+🧾 Example Output
+markdown
+Copy
+Edit
+# My Project
+
+This is an amazing project.
+
+## 🚀 Features
+- Fast
+- Lightweight
+- Easy to use
+
+## 🔧 Setup
+```bash
+git clone https://github.com/user/my-project.git
+cd my-project
+npm install
+npm run dev
+👤 Author
+Lorayne911@gmail.com
+
+📄 License
+MIT
+
+yaml
+Copy
+Edit
+
+---
+
+## 👩🏽‍🍳 Author
+
+Built with ✨ by [Lorayne](mailto:lorayne911@gmail.com)
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 🧂 Contributing
+
+Pull requests are welcome! Feel free to fork, modify, and suggest improvements.
+
+---
+
+## 💡 Future Features (Coming Soon)
+
+- 🧠 AI-generated README suggestions
+- 🎨 Custom Markdown themes
+- 🧪 Unit testing boilerplate auto-fill
+- 🗂 Save templates for reuse
+
+Bon appétit! 🍽️
