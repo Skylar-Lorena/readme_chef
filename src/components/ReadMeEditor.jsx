@@ -7,7 +7,34 @@ const ReadMeEditor = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [features, setFeatures] = useState("");
+  const [gitClone, setGitClone] = useState("");
+  const [author, setAuthor] = useState("");
+  const [license, setLicense] = useState("");
+  const [projectType, setProjectType] = useState("react");
   const [markdown, setMarkdown] = useState("");
+
+  const getSetupInstructions = () => {
+    switch (projectType) {
+      case "node":
+        return `git clone ${gitClone}
+cd ${title.toLowerCase().replace(/\s+/g, "-")}
+npm install
+node index.js`;
+      case "python":
+        return `git clone ${gitClone}
+cd ${title.toLowerCase().replace(/\s+/g, "-")}
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py`;
+      case "react":
+      default:
+        return `git clone ${gitClone}
+cd ${title.toLowerCase().replace(/\s+/g, "-")}
+npm install
+npm start`;
+    }
+  };
 
   useEffect(() => {
     const md = `# ${title}
@@ -20,15 +47,30 @@ ${features
   .filter(Boolean)
   .map((f) => `- ${f}`)
   .join("\n")}
+
+## 🔧 Setup
+\`\`\`bash
+${getSetupInstructions()}
+\`\`\`
+
+## 👤 Author
+${author}
+
+## 📄 License
+${license}
 `;
     setMarkdown(md);
-  }, [title, description, features]);
+  }, [title, description, features, gitClone, author, license, projectType]);
 
   const handleDownload = () => {
     downloadMarkdown(markdown);
     setTitle("");
     setDescription("");
     setFeatures("");
+    setGitClone("");
+    setAuthor("");
+    setLicense("");
+    setProjectType("react");
   };
 
   return (
@@ -54,8 +96,44 @@ ${features
           placeholder="Features (one per line)"
           value={features}
           onChange={(e) => setFeatures(e.target.value)}
-          rows={5}
+          rows={4}
         />
+
+        <input
+          type="text"
+          placeholder="GitHub Clone URL"
+          value={gitClone}
+          onChange={(e) => setGitClone(e.target.value)}
+        />
+
+        <select
+          value={projectType}
+          onChange={(e) => setProjectType(e.target.value)}
+        >
+          <option value="react">React</option>
+          <option value="node">Node.js</option>
+          <option value="python">Python</option>
+        </select>
+
+        <input
+          type="text"
+          placeholder="Author Name"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+
+     <select
+  value={license}
+  onChange={(e) => setLicense(e.target.value)}
+>
+  <option value="">-- Select License --</option>
+  <option value="MIT">MIT</option>
+  <option value="Apache-2.0">Apache 2.0</option>
+  <option value="GPL-3.0">GNU GPLv3</option>
+  <option value="BSD-3-Clause">BSD 3-Clause</option>
+  <option value="Unlicensed">Unlicensed</option>
+</select>
+
 
         <Button onClick={handleDownload}>📥 Download README.md</Button>
       </div>
