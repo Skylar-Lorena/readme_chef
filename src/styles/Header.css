@@ -1,0 +1,38 @@
+.header {
+  background: linear-gradient(to right, #ff9234, #ffcd3c);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  border-bottom: 3px solid #e87800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-tagline {
+  font-size: 1rem;
+  font-weight: 500;
+color: var(--text-color);
+  margin-top: 0.3rem;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.toggle-btn {
+  margin-top: 1rem;
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: #ffaa00;
+}
+
