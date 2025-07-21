@@ -4,26 +4,29 @@ import { downloadMarkdown } from "../utils/download";
 import "../styles/ReadMeEditor.css";
 
 const ReadMeEditor = () => {
+  // 🍳 State Declarations
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [features, setFeatures] = useState("");
   const [gitClone, setGitClone] = useState("");
-  const [otherSetup, setOtherSetup]= useState("");
+  const [otherSetup, setOtherSetup] = useState("");
   const [author, setAuthor] = useState("");
   const [license, setLicense] = useState("");
   const [projectType, setProjectType] = useState("react");
   const [markdown, setMarkdown] = useState("");
 
+  // 🧪 Setup Instructions Generator
   const getSetupInstructions = () => {
+    const repoName = title.toLowerCase().replace(/\s+/g, "-");
     switch (projectType) {
       case "node":
         return `git clone ${gitClone}
-cd ${title.toLowerCase().replace(/\s+/g, "-")}
+cd ${repoName}
 npm install
 node index.js`;
       case "python":
         return `git clone ${gitClone}
-cd ${title.toLowerCase().replace(/\s+/g, "-")}
+cd ${repoName}
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -31,12 +34,13 @@ python app.py`;
       case "react":
       default:
         return `git clone ${gitClone}
-cd ${title.toLowerCase().replace(/\s+/g, "-")}
+cd ${repoName}
 npm install
 npm start`;
     }
   };
 
+  // 🧾 Markdown Formatter
   useEffect(() => {
     const md = `# ${title}
 
@@ -55,9 +59,8 @@ ${getSetupInstructions()}
 ${otherSetup
   .split("\n")
   .filter(Boolean)
-  .map((f) => `- ${f}`)
+  .map((f) => f)
   .join("\n")}
-}
 \`\`\`
 
 ## 👤 Author
@@ -67,10 +70,20 @@ ${author}
 ${license}
 `;
     setMarkdown(md);
-  }, [title, description, features, gitClone, otherSetup, author, license, projectType]);
+  }, [
+    title,
+    description,
+    features,
+    gitClone,
+    otherSetup,
+    author,
+    license,
+    projectType,
+  ]);
 
+  // 📥 Handle README Download
   const handleDownload = () => {
-    downloadMarkdown(markdown); 
+    downloadMarkdown(markdown);
     setTitle("");
     setDescription("");
     setFeatures("");
@@ -81,6 +94,7 @@ ${license}
     setProjectType("react");
   };
 
+  // 🎨 JSX
   return (
     <div className="editor-container">
       <div className="form-section">
@@ -115,10 +129,10 @@ ${license}
         />
 
         <textarea
-          placeholder="Additional Project Instructions(one per line)"
+          placeholder="Additional Project Setup (optional, one per line)"
           value={otherSetup}
           onChange={(e) => setOtherSetup(e.target.value)}
-          rows={4}
+          rows={3}
         />
 
         <select
@@ -132,23 +146,19 @@ ${license}
 
         <input
           type="text"
-          placeholder="Author Name"
+          placeholder="Author Name or Email"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
 
-     <select
-  value={license}
-  onChange={(e) => setLicense(e.target.value)}
->
-  <option value="">-- Select License --</option>
-  <option value="MIT">MIT</option>
-  <option value="Apache-2.0">Apache 2.0</option>
-  <option value="GPL-3.0">GNU GPLv3</option>
-  <option value="BSD-3-Clause">BSD 3-Clause</option>
-  <option value="Unlicensed">Unlicensed</option>
-</select>
-
+        <select value={license} onChange={(e) => setLicense(e.target.value)}>
+          <option value="">-- Select License --</option>
+          <option value="MIT">MIT</option>
+          <option value="Apache-2.0">Apache 2.0</option>
+          <option value="GPL-3.0">GNU GPLv3</option>
+          <option value="BSD-3-Clause">BSD 3-Clause</option>
+          <option value="Unlicensed">Unlicensed</option>
+        </select>
 
         <Button onClick={handleDownload}>📥 Download README.md</Button>
       </div>
