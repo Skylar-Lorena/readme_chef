@@ -8,6 +8,7 @@ const ReadMeEditor = () => {
   const [description, setDescription] = useState("");
   const [features, setFeatures] = useState("");
   const [gitClone, setGitClone] = useState("");
+  const [otherSetup, setOtherSetup]= useState("");
   const [author, setAuthor] = useState("");
   const [license, setLicense] = useState("");
   const [projectType, setProjectType] = useState("react");
@@ -51,6 +52,12 @@ ${features
 ## 🔧 Setup
 \`\`\`bash
 ${getSetupInstructions()}
+${otherSetup
+  .split("\n")
+  .filter(Boolean)
+  .map((f) => `- ${f}`)
+  .join("\n")}
+}
 \`\`\`
 
 ## 👤 Author
@@ -60,14 +67,15 @@ ${author}
 ${license}
 `;
     setMarkdown(md);
-  }, [title, description, features, gitClone, author, license, projectType]);
+  }, [title, description, features, gitClone, otherSetup, author, license, projectType]);
 
   const handleDownload = () => {
-    downloadMarkdown(markdown);
+    downloadMarkdown(markdown); 
     setTitle("");
     setDescription("");
     setFeatures("");
     setGitClone("");
+    setOtherSetup("");
     setAuthor("");
     setLicense("");
     setProjectType("react");
@@ -104,6 +112,13 @@ ${license}
           placeholder="GitHub Clone URL"
           value={gitClone}
           onChange={(e) => setGitClone(e.target.value)}
+        />
+
+        <textarea
+          placeholder="Additional Project Instructions(one per line)"
+          value={otherSetup}
+          onChange={(e) => setOtherSetup(e.target.value)}
+          rows={4}
         />
 
         <select

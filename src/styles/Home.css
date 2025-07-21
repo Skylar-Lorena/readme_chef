@@ -1,5 +1,5 @@
 .home {
-  background-color: #fdf6ec;
+  background-color: var(--bg-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
