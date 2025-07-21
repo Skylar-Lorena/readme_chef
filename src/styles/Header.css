@@ -1,9 +1,20 @@
 .header {
   background: linear-gradient(to right, #ff9234, #ffcd3c);
-  padding: 1.2rem;
-  color: white;
+  padding: 2rem 1.5rem;
   text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  border-bottom: 2px solid #e87800;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  border-bottom: 3px solid #e87800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header-tagline {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fffdf5;
+  margin-top: 0.3rem;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
 }
