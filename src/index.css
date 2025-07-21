@@ -1,0 +1,19 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #111;
+  --accent-color: #ff9234;
+  --border-color: #ddd;
+}
+
+body.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #eee;
+  --accent-color: #ffcd3c;
+  --border-color: #444;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}

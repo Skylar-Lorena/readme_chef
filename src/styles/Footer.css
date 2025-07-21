@@ -1,0 +1,20 @@
+.footer {
+  background-color: #fdfaf6;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.95rem;
+  color: #555;
+  border-top: 1px solid #ddd;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.footer a {
+  color: #e87800;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
