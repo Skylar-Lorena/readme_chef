@@ -1,0 +1,52 @@
+.editor-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #fff8f2;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.form-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-section input,
+.form-section textarea {
+  font-size: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+
+.preview-section {
+  flex: 1;
+  background-color: #fefefe;
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 600px;
+  white-space: pre-wrap;
+  font-family: monospace;
+}
+
+.preview-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: #444;
+}
